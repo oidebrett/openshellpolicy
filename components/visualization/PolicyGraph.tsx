@@ -75,6 +75,9 @@ function buildGraph(
 
   const user = policy.process?.run_as_user ?? "sandbox";
 
+  const entries = Object.entries(policy.network_policies ?? {});
+  const cols = Math.ceil(Math.sqrt(entries.length)) || 1;
+
   // When empty place sandbox at top so it doesn't overlap the hint text
   const sandboxY = entries.length === 0 ? 60 : 300;
 
@@ -93,9 +96,6 @@ function buildGraph(
     },
     style: { border: "none", background: "transparent", padding: 0 },
   });
-
-  const entries = Object.entries(policy.network_policies ?? {});
-  const cols = Math.ceil(Math.sqrt(entries.length)) || 1;
 
   entries.forEach(([key, entry], entryIdx) => {
     const col = entryIdx % cols;
