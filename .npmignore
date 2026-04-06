@@ -1,0 +1,25 @@
+# Source — not needed at runtime, only the built `out/` is shipped
+app/
+components/
+lib/
+types/
+public/
+__tests__/
+
+# Config / tooling
+.next/
+node_modules/
+*.config.ts
+*.config.mjs
+tsconfig.json
+eslint.config.mjs
+postcss.config.mjs
+next-env.d.ts
+vitest.config.ts
+
+# Dev
+.git/
+.gitignore
+tbdDocsFromOpenshell/
+AGENTS.md
+CLAUDE.md

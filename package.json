@@ -1,14 +1,48 @@
 {
-  "name": "openshellpolicy",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@contextware/openshellpolicy",
+  "version": "1.0.0",
+  "description": "Visual policy editor for NVIDIA OpenShell sandbox policies — build, visualize, and validate agent sandbox policies without hand-editing YAML",
+  "private": false,
+  "keywords": [
+    "nvidia",
+    "openshell",
+    "sandbox",
+    "policy",
+    "ai-agents",
+    "security",
+    "network-policy",
+    "visual-editor",
+    "yaml"
+  ],
+  "author": "mattercoder",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oidebrett/openshellpolicy.git"
+  },
+  "homepage": "https://github.com/oidebrett/openshellpolicy",
+  "bugs": {
+    "url": "https://github.com/oidebrett/openshellpolicy/issues"
+  },
+  "bin": {
+    "openshellpolicy": "bin/cli.js"
+  },
+  "files": [
+    "out/",
+    "bin/",
+    "README.md"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "next build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
