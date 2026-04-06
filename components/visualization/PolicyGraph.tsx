@@ -75,11 +75,14 @@ function buildGraph(
 
   const user = policy.process?.run_as_user ?? "sandbox";
 
+  // When empty place sandbox at top so it doesn't overlap the hint text
+  const sandboxY = entries.length === 0 ? 60 : 300;
+
   // Sandbox node
   nodes.push({
     id: "sandbox",
     type: "default",
-    position: { x: 400, y: 300 },
+    position: { x: 400, y: sandboxY },
     data: {
       label: (
         <div style={sandboxStyle}>
@@ -243,13 +246,10 @@ export default function PolicyGraph() {
       </ReactFlow>
 
       {Object.keys(policy.network_policies ?? {}).length === 0 && (
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="absolute bottom-8 inset-x-0 flex justify-center pointer-events-none">
           <div className="text-center text-gray-600">
-            <div className="text-5xl mb-4">◈</div>
-            <p className="text-lg font-medium">No network policies yet</p>
-            <p className="text-sm mt-1">
-              Use the left panel to add a policy entry
-            </p>
+            <p className="text-sm font-medium">No network policies yet</p>
+            <p className="text-xs mt-1">Use the left panel to add a policy entry</p>
           </div>
         </div>
       )}
